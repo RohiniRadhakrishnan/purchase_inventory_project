@@ -60,6 +60,7 @@
 <!-- </div>
   </div>
 </section> -->
+
 <button type="button" (click)="fetchproduct()">
   click here to see the products
 </button>
@@ -68,8 +69,14 @@
     <thead>
       <td scope="col">Product Name</td>
       <td scope="col">Product Price</td>
-      <td scope="col"></td>
+      <td scope="col">Add</td>
       <td scope="col">Quantity</td>
+      <td scope="col">Reduce</td>
+      <td scope="col">stock</td>
+
+      <td scope="col">Total</td>
+      <td scope="col">balance</td>
+      <td scope="col">your wishlist</td>
       <td scope="col"></td>
     </thead>
     <tbody>
@@ -89,6 +96,16 @@
             <i class="bi bi-file-minus"></i>
           </button>
         </td>
+
+        <td scope="row">{{ pro.total_Qty }}</td>
+
+        <td>
+          {{ pro.quantity * pro.pro_price || "" }}
+        </td>
+        <td>
+          {{ pro.total_Qty - pro.quantity || "" }}
+        </td>
+        <!-- <button clear (click)="delete(i)"><i class="bi bi-trash"></i></button> -->
         <!-- <td scope="row">{{ pro.total_Qty }}Kg</td> -->
 
         <!-- <td scope="row"><input type="checkbox" /></td> -->
@@ -98,7 +115,13 @@
         <!-- </tr> -->
         <!-- </tbody> -->
         <!-- </table> -->
+        <div class="addtocart">
+          <button padding (click)="addCart(pro)">Add To Cart</button>
+          <!-- <p style="color: red" *ngIf="selected">*selected</p> -->
+        </div>
       </tr>
     </tbody>
   </table>
+  <button padding (click)="cart()">confirm your products</button>
+  <button padding (click)="order()">place your order</button>
 </div>

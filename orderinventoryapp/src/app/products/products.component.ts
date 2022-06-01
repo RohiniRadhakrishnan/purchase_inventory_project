@@ -71,6 +71,7 @@ export class ProductsComponent implements OnInit {
      this.api.get("rohini-trainee").subscribe(res=>{
       console.log(res);
       alert("the data is Retrived");
+      window.location.reload();
      },rej=>{
       alert("data was not retrived!!")
      });

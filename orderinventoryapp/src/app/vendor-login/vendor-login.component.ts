@@ -49,6 +49,7 @@ export class VendorLoginComponent implements OnInit {
         i.username == formvalue.username &&
         i.password == formvalue.password
       ) {
+        localStorage.setItem("userid",i._id);
         this.flag = 1;
       }
     }
