@@ -1,0 +1,114 @@
+<body>
+  <div class="container mt-5">
+    <div class="card mx-auto">
+      <div class="card-header">
+        <h1 class="text-center text-light">User Sign-up Form</h1>
+      </div>
+      <div class="card-body mx-auto">
+        <form class="myform" [formGroup]="registerform">
+          <div class="field">
+            <label for="username" class="text-light">User Name :</label>
+            <input
+              type="text"
+              formControlName="username"
+              id="username"
+              class="form-control"
+              placeholder="Enter your Name here"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registerform.controls['username'].touched &&
+                registerform.hasError('required', 'username')
+              "
+            >
+              *Name is required!!</span
+            >
+          </div>
+
+          <div class="field">
+            <label for="phone" class="text-light">Phone Number :</label>
+            <input
+              type="tel"
+              formControlName="phone"
+              id="phone"
+              class="form-control"
+              placeholder="Enter Mobile Number"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registerform.controls['phone'].touched &&
+                registerform.hasError('required', 'phone')
+              "
+            >
+              *Phone Number must be in 10 Digits!!</span
+            >
+          </div>
+
+          <div class="field">
+            <label for="gmail" class="text-light">Gmail :</label>
+            <input
+              type="text"
+              formControlName="email"
+              id="gmail"
+              class="form-control"
+              placeholder="Enter your gmail"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registerform.controls['email'].touched &&
+                registerform.hasError('required', 'email')
+              "
+            >
+              *Enter Valid Gmail!!</span
+            >
+          </div>
+          <div class="field">
+            <label for="address" class="text-light">Address :</label>
+            <input
+              type="text"
+              formControlName="address"
+              id="address"
+              class="form-control"
+              placeholder="Enter your Name here"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registerform.controls['address'].touched &&
+                registerform.hasError('required', 'address')
+              "
+            >
+              *Address is required!!</span
+            >
+          </div>
+
+          <div class="field">
+            <label for="password" class="text-light">Password :</label>
+            <input
+              type="password"
+              formControlName="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <div class="buttons text-center">
+            <button
+              type="submit"
+              class="btn btn-dark"
+              (click)="register(this.registerform.value)"
+              [disabled]="!registerform.valid"
+            >
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

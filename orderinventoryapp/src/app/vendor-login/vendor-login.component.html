@@ -1,0 +1,72 @@
+<body>
+  <div class="container mt-5">
+    <div class="card mx-auto">
+      <div class="card-header">
+        <h1 class="text-center text-light">User Login</h1>
+      </div>
+      <div class="card-body mx-auto">
+        <form class="myform" [formGroup]="userform">
+          <div class="field">
+            <label for="username" class="text-light">Username :</label>
+            <input
+              type="text"
+              formControlName="username"
+              class="form-control"
+              id="username"
+              placeholder="Enter your username or email"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                userform.controls['username'].touched &&
+                userform.hasError('required', 'username')
+              "
+              >* Name is required!!</span
+            >
+          </div>
+
+          <div class="field">
+            <label for="password" class="text-light">Password :</label>
+            <input
+              type="password"
+              formControlName="password"
+              id="password"
+              placeholder="Enter your Password"
+              class="form-control"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                userform.controls['password'].dirty &&
+                userform.hasError('required', 'password')
+              "
+            >
+              *Password is required!!</span
+            >
+          </div>
+
+          <div class="buttons text-center">
+            <button
+              id="btn"
+              class="btn btn-dark"
+              (click)="userFormData(this.userform.value)"
+              [disabled]="!userform.valid"
+            >
+              Login
+            </button>
+          </div>
+          <!-- <div class="text-center text-success" *ngIf="successMessage">
+            {{ successMessage }}
+          </div> -->
+
+          <div class="signup text-center">
+            <label for="signup" class="text-light"
+              >Don't Have a Account?
+              <a routerLink="/signup" class="text-danger">Signup</a></label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
