@@ -11,10 +11,9 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 // import { OrderComponent } from './order/order.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
-import { HeaderComponent } from './header/header.component';
+import { HomepageComponent } from './homepage/homepage.component';
 // import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
@@ -27,10 +26,9 @@ import { HeaderComponent } from './header/header.component';
      DashboardComponent,
     ProductsComponent,
     // OrderComponent,
-    HomePageComponent,
     CartComponent,
     ContactComponent,
-    HeaderComponent,
+    HomepageComponent,
     // CartComponent,
     
   ],

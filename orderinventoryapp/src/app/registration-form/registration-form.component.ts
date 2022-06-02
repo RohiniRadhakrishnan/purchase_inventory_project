@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { DbservicesService } from '../dbservices.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
@@ -11,7 +13,7 @@ export class RegistrationFormComponent implements OnInit {
    value: boolean = true;
   
    constructor(
-    private formbuilder: FormBuilder,
+    private formbuilder: FormBuilder,private router:Router,
     private api: DbservicesService
    ) {
     // this.api.getconnecting().subscribe(data =>{
@@ -36,6 +38,8 @@ export class RegistrationFormComponent implements OnInit {
     this.api.signupdata(Formvalue).subscribe((data) => {
      console.log(data);
     });
+    this.router.navigate(['/vendor']);
+    
    }
   }
   

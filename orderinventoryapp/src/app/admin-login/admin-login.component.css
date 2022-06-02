@@ -1,5 +1,5 @@
 body{
-  background-image:linear-gradient(to right top,rgb(196, 62, 140), rgb(245, 241, 241));
+  background-image:linear-gradient(to right top,rgb(240, 235, 238), rgb(236, 211, 211));
   height: 91.5vh;
   margin-left: 0px;
   margin-right: 10px;
@@ -7,17 +7,12 @@ body{
   background-attachment: fixed;
   background-size: cover;
   overflow-x: hidden;
-  margin-top: 4%;
+  /* margin-top: 4%; */
 }
 
 .card,
 .card-1 {
-  background: rgb(190, 31, 215);
-  background: linear-gradient(
-    90deg,
-    rgb(202, 240, 88),
-    rgb(130, 56, 56)
-  );
+  background-color:rgb(130, 123, 123);
   
   border: none;
   width: 450px;
