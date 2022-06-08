@@ -42,7 +42,7 @@
                 registerform.hasError('required', 'phone')
               "
             >
-              *Phone Number must be in 10 Digits!!</span
+              *Enter Valid 10 digit mobile number!!</span
             >
           </div>
 
@@ -51,7 +51,7 @@
             <input
               type="text"
               formControlName="email"
-              id="gmail"
+              id="email"
               class="form-control"
               placeholder="Enter your gmail"
             />
@@ -95,6 +95,15 @@
               class="form-control"
               placeholder="Enter your password"
             />
+            <span
+              class="text-danger"
+              *ngIf="
+                registerform.controls['password'].touched &&
+                registerform.hasError('required', 'password')
+              "
+            >
+              *password is required</span
+            >
           </div>
 
           <div class="buttons text-center">

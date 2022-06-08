@@ -1,0 +1,59 @@
+<body>
+  <div class="container mt-5">
+    <div class="card mx-auto">
+      <div class="card-header">
+        <h1 class="text-center text-dark">vendors Addtional info</h1>
+      </div>
+      <div class="card-body mx-auto">
+        <form class="myform" [formGroup]="addinfo" (ngSubmit)="submit()">
+          <div class="field">
+            <label for="shop name" class="text-dark">SHOP NAME :</label>
+            <input
+              type="text"
+              formControlName="shopname"
+              id="shopname"
+              class="form-control"
+              placeholder="Enter your shopname here"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                addinfo.controls['shopname'].touched &&
+                addinfo.hasError('required', 'shopname')
+              "
+            >
+              *shopname is required!!</span
+            >
+          </div>
+
+          <div class="field">
+            <label for="type">vendor type:</label>
+            <select
+              name="vtype"
+              id="vtype"
+              formControlName="vtype"
+              class="form-control"
+            >
+              <option value="Local">Local</option>
+              <option value="International">International</option>
+            </select>
+            <br /><br />
+            <span
+              class="text-danger"
+              *ngIf="
+                addinfo.controls['vtype'].touched &&
+                addinfo.hasError('required', 'vtype')
+              "
+              >*vendor type is required!!</span
+            >
+          </div>
+          <div class="text-center">
+            <button id="submitButton" type="submit" class="btn btn-primary">
+              Add products
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

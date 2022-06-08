@@ -18,24 +18,10 @@ insert = function (paramsvalue) {
     });
 };
 
-// insert1 = function (paramsvalue) {
-//   console.log(paramsvalue);
-//   cloudant
-//     .use('housing-software')
-//     .insert(paramsvalue)
-//     .then((data) => {
-//       console.log('Data Inserted into Cloud database' + data);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
 get = function (admindata, dbname) {
   return cloudant.use(dbname).find(admindata);
 };
-// getbill = function (dbname) {
-//   return cloudant.use(dbname).list();
-// };
+
 getId = function (id, dbname) {
   return cloudant.use(dbname).get(id);
 };

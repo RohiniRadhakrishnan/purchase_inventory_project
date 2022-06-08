@@ -2,6 +2,7 @@
  import { FormGroup,FormBuilder,Validator, Validators } from '@angular/forms';
  import { Router } from '@angular/router';
  import { DbservicesService } from '../dbservices.service';
+ import { ToastrService } from 'ngx-toastr';
  @Component({
    selector: 'app-admin-login',
    templateUrl: './admin-login.component.html',
@@ -16,7 +17,8 @@
    constructor(
     private formbuilder: FormBuilder,
     private api: DbservicesService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
    ) {}
   
    ngOnInit(): void {
@@ -43,14 +45,18 @@
       i.username == formvalue.username &&
       i.password == formvalue.password
      ) {
+       localStorage.setItem("adminid",i._id);
       this.flag = 1;
      }
     }
     if (this.flag == 1) {
+      this.toastr.success("valid to access");
+       
      this.router.navigate(['/dashboard']);
     } else {
-     alert('Not a valid user');
-     location.reload();
+      
+    this.toastr.error("Not a valid");
+       
     }
    }
   }

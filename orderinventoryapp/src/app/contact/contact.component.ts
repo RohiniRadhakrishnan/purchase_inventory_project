@@ -21,11 +21,6 @@ export class ContactComponent implements OnInit {
       message: ['', Validators.required],
     });
   }
-  // send(Formvalue: NgForm) {
-  //   console.log('hi');
-  //   console.log(Formvalue);
-  //   this.api.contact(Formvalue).subscribe((data) => {
-  //     console.log(Formvalue);
-  //   });
+  
   }
 

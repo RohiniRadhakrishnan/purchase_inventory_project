@@ -13,9 +13,9 @@ export class RegistrationFormComponent implements OnInit {
    value: boolean = true;
   
    constructor(
-    private formbuilder: FormBuilder,private router:Router,
-    private api: DbservicesService
-   ) {
+    private formbuilder: FormBuilder,
+    private api: DbservicesService,
+    private router:Router   ) {
     // this.api.getconnecting().subscribe(data =>{
     //  console.log(data)
     // } )
@@ -24,7 +24,9 @@ export class RegistrationFormComponent implements OnInit {
    ngOnInit(): void {
     this.registerform = this.formbuilder.group({
      username: ['', Validators.required],
-     phone: ['', Validators.required],
+     phone: ['', [ Validators.required,
+      Validators.pattern("^[0-9]*$"),
+      Validators.minLength(10), Validators.maxLength(10)]],
      email: ['', Validators.required],
      address: ['', Validators.required],
      password: ['', Validators.required],
@@ -32,11 +34,12 @@ export class RegistrationFormComponent implements OnInit {
     });
     // console.log(this.registerform);
    }
-   register(Formvalue: NgForm) {
+   register(Formvalue:NgForm ) {
     console.log(Formvalue);
-    alert('Your Data Posted....');
+    // alert('Your Data Posted....');
     this.api.signupdata(Formvalue).subscribe((data) => {
      console.log(data);
+    alert('Your Data Posted....');
     });
     this.router.navigate(['/vendor']);
     

@@ -1,0 +1,35 @@
+body{
+    background-image:linear-gradient(to right top,rgb(240, 235, 238), rgb(236, 211, 211));
+    height: 91.5vh;
+    margin-left: 0px;
+    margin-right: 10px;
+    width: 100vw;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    /* margin-top: 4%; */
+  }
+  
+  .card,
+  .card-1 {
+    background-color:rgb(130, 123, 123);
+    
+    border: none;
+    width: 450px;
+    margin-bottom: 1.5rem;
+    /* padding: 40px;
+    position: absolute;
+    top: 70%;
+    transform: translate(-50%, -50%); */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .field,
+  .buttons
+  {
+      margin-top: 1rem;
+  }
+  
+  form {
+      width: 400px;
+  }

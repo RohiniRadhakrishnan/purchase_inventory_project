@@ -12,11 +12,11 @@ app.use(connection.static('public'));
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: '*',
+    origin: 'http://localhost:4200',
   })
 );
 
-app.post('/postquery', (request, response, next) => {
+app.post('/postquery', (request, response) => {
   console.log(request);
   var object = {
     username: request.body.username,
@@ -29,20 +29,28 @@ app.post('/postquery', (request, response, next) => {
 
   dbconnection.insert(object);
 });
-
-// app.post('/post_query', (request, response, next) => {
-//   console.log(request);
-//   var object = {
-//     block: request.body.block,
-//     maintainance: request.body.maintainance,
-//     housetax: request.body.housetax,
-//     watertax: request.body.watertax,
-//     parking: request.body.parking,
-//     charity: request.body.charity,
-//     type: 'bill',
-//   };
-
-//   dbconnection.insert1(object);
+//   dbconnection.rohini -
+//     trainee
+//       .insert(object)
+//       .then((data) => {
+//         console.log('register successfully ', data);
+//         let data1;
+//         if (data['id']) {
+//           data1 = {
+//             message: 'Registered Successfully',
+//             status: 'success',
+//             response: data,
+//           };
+//         }
+//         res.send(data1);
+//       })
+//       .catch((error) => {
+//         res.send({
+//           message: 'failed to register',
+//           status: 'error',
+//           error: error,
+//         });
+//       });
 // });
 
 app.get('/getUser', (request, response) => {
@@ -69,22 +77,6 @@ app.get('/getUserId/:id', (request, response) => {
     }
   });
 });
-
-// app.get('/getbill', (request, response) => {
-//   console.log(request);
-//   var data = {
-//     selector: {
-//       type: 'bill',
-//     },
-//   };
-//   dbconnection.get(data, 'rohini-trainee').then((res) => {
-//     if (res) {
-//       response.send(res);
-//     } else {
-//       response.send('error');
-//     }
-//   });
-// });
 
 app.delete('/delete/:id/:id1', (request, response) => {
   dbconnection

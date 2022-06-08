@@ -12,14 +12,15 @@ export class DashboardComponent implements OnInit {
   object: any = [];
   alldata: any;
 
-  constructor(private api: DbservicesService) {}
-
+  constructor(private api: DbservicesService) {
+      this.getuser();
+  }
   ngOnInit(): void {}
 
   getuser() {
     this.api.getUser().subscribe((data) => {
       console.log(data);
-      alert('Data was fetching....');
+      // alert('Data was fetching....');
       this.alldata = data;
       this.alldata = this.alldata.docs;
       console.log(this.alldata);

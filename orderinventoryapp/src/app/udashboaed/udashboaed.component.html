@@ -9,39 +9,16 @@
       <div class="list-group list-group-flush my-3">
         <a
           href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text active"
-          ><i class="fas fa-tachometer-alt me-2"></i
-          ><a routerLink="/admindashboard">Dashboard</a></a
-        >
-        <a
-          href="#"
           class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
           ><i class="fas fa-project-diagram me-2"></i
-          ><a routerLink="/add">Add Products</a></a
+          ><a routerLink="/vinfo">vendors addtional info</a></a
         >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-chart-line me-2"></i
-          ><a routerLink="/billgenerator"></a
-        ></a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-paperclip me-2"></i
-          ><a routerLink="/list">Purchased list</a></a
-        >
-        <a
-          href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-shopping-cart me-2"></i
-        ></a>
 
         <a
           href="#"
           class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
           ><i class="fas fa-power-off me-2"></i
-          ><a routerLink="/admin">Logout</a></a
+          ><a routerLink="/cart">order your Products</a></a
         >
       </div>
     </div>
@@ -81,38 +58,31 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="fas fa-user me-2"></i>ROHINI KRISHNAN
+                <i class="fas fa-user me-2"></i>USER DASHBOARD
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
               </ul>
             </li>
           </ul>
         </div>
       </nav>
-
       <div class="row my-5">
-        <h3 class="fs-4 mb-3">Registred vendors</h3>
+        <h3 class="fs-4 mb-3">Vendor Addtional Info</h3>
         <div class="col">
           <table class="table bg-white rounded shadow-sm table-hover">
             <thead>
               <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Contact Number</th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
+                <th scope="col">shopname</th>
+                <th scope="col">vtype</th>
 
                 <th scope="col">Remove User</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let obj of object">
-                <td scope="row">{{ obj.username }}</td>
-                <td scope="row">{{ obj.phone }}</td>
-                <td scope="row">{{ obj.email }}</td>
-                <td scope="row">{{ obj.address }}</td>
+              <tr *ngFor="let obj of info">
+                <td scope="row">{{ obj.shopname }}</td>
+                <td scope="row">{{ obj.vtype }}</td>
 
                 <td scope="row">
                   <button class="btn btn-dark" (click)="deluser(obj, obj)">
@@ -123,10 +93,6 @@
             </tbody>
           </table>
           <br />
-
-          <!-- <div class="buttons text-center">
-            <button (click)="getuser()" class="btn btn-dark">getuser</button>
-          </div> -->
         </div>
       </div>
     </div>

@@ -54,10 +54,10 @@ export class VendorLoginComponent implements OnInit {
       }
     }
     if (this.flag == 1) {
-      this.router.navigate(['/cart']);
-      alert('Valid user')
+      this.router.navigate(['/udashboard']);
+      // alert('Valid user')
     } else {
-      alert('Not a valid user');
+      // alert('Not a valid user');
       location.reload();
     }
   }

@@ -9,6 +9,24 @@
           <div class="container">
             <div class="tab tab-2">
               <div class="field">
+                <label for="pro_img" class="fa fa-lock">Product:</label>
+                <input
+                  class="form-contorl"
+                  type="text"
+                  name="report"
+                  placeholder="Enter your Pro.pro_img"
+                  id="pro_img"
+                  formControlName="pro_img"
+                /><span
+                  class="text-danger"
+                  *ngIf="
+                    addform.controls.pro_img.errors &&
+                    addform.controls.pro_img.touched
+                  "
+                  ><br />enter prodouct image
+                </span>
+              </div>
+              <div class="field">
                 <label for="Pro_name" class="fa fa-lock">Product Name:</label>
                 <input
                   class="form-contorl"
@@ -90,27 +108,10 @@
               </div>
 
               <div class="text-center">
-                <button
-                  id="submitButton"
-                  type="submit"
-                  class="btn btn-primary"
-                  [disabled]="!addform.valid"
-                  (Click)="add()"
-                >
+                <button id="submitButton" type="submit" class="btn btn-primary">
                   Add products
                 </button>
-                <!-- <button type="button" (click)="add()">click here</button> -->
               </div>
-              <!-- <div class="text-center">
-                <button
-                  id="cancelbutton"
-                  type="submit"
-                  class="btn btn-primary"
-                  [disabled]="!addform.valid"
-                >
-                  cancel
-                </button>
-              </div> -->
             </div>
           </div>
         </div>

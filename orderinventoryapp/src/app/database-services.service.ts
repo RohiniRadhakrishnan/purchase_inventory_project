@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import{HttpClient,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,6 +8,12 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class DatabaseServicesService {
+  fetchData(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
+  userid: any;
+  userData: any;
+  id: any;
   logindata(FormValue: NgForm) {
     throw new Error('Method not implemented.');
   }
@@ -31,10 +36,16 @@ export class DatabaseServicesService {
     const url=this.url+db;
     return this.http.post(url, doc, this.httpOptions)
   }
+  
   get(db:string): Observable<{}>{
     const url = this.url+db+'/_all_docs?include_docs=true';
     return this.http.get(url,this.httpOptions)
 
+  }
+  getAllDocsByKeys(db: any, data: any) {
+    const url = this.url + db + '/_all_docs?include_docs=true';
+    const basicAuth = 'Basic ' + btoa(this.dbUserName + ':' + this.dbPassword);
+    return this.http.post(url, data, { headers: { Authorization: basicAuth } });
   }
   getbytype(product: string, db:string) {
      let url = this.url +db+ '/_find'
@@ -46,7 +57,45 @@ export class DatabaseServicesService {
      return this.http.post(url, typedData, this.httpOptions)
     
     }
-    
-    
-}
+    add1(db:string,formdata:any){
+      const object={
+        "pro_img": formdata['pro_img'],
+        "pro_name":formdata['pro_name'],
+        "pro_price":formdata['pro_price'],
+        "quantity":formdata['quantity'],
+        "total_Qty":formdata['total_Qty'],
+        "admin_id":localStorage.getItem("adminid"),
+        "type":"productupdate",
+      
+            };
+            const url=this.url+db;
+            return this.http.post(url, object, this.httpOptions)
 
+
+    }
+    add2(db:string,formdata:any){
+      const object2={
+        "shopname": formdata['shopname'],
+        "vtype":formdata['vtype'],
+       
+        "user_id":localStorage.getItem("userid"),
+        "type":"vinfo",
+      
+            };
+            const url=this.url+db;
+            return this.http.post(url, object2, this.httpOptions)
+
+
+    }
+    viewdocument(type:string){
+      this.userData = JSON.parse(localStorage.getItem('usrData') || '{}')
+      this.userid = this.userData
+      this.id = this.userid._id;
+      console.log(this.id);
+      const geturl = `${this.url}rohini-trainee/_design/purchaseDtls/_view/new-view?include_docs=true&keys=["${type + this.id}"]`;
+return this.http.get(geturl, this.httpOptions);
+
+
+    }
+  }
+ 

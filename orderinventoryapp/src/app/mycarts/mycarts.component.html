@@ -1,0 +1,30 @@
+<section class="cart_section">
+  <div class="container">
+    <h2>Your Cart</h2>
+
+    <table>
+      <thead>
+        <th>Image</th>
+        <th>productName</th>
+
+        <th>price</th>
+        <th>Quantity</th>
+        <th>totalPrice</th>
+      </thead>
+      <tr *ngFor="let prod of product">
+        <td>
+          <img src="{{ prod.pro_img }}" width="100px" alt="productimage" />
+        </td>
+        <td>{{ prod.pro_name }}</td>
+        <td>{{ prod.pro_price }}</td>
+
+        <td>{{ prod.quantity }}</td>
+        <td>{{ prod.pro_price * prod.quantity }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="total">
+    {{ total }}
+  </div>
+  <button padding (click)="order()">place your order</button>
+</section>
