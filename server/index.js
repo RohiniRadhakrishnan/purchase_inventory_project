@@ -16,9 +16,9 @@ app.use(
   })
 );
 
-app.post('/postquery', (request, response) => {
+app.post('/postquery', (request, _response) => {
   console.log(request);
-  var object = {
+  let object = {
     username: request.body.username,
     phone: request.body.phone,
     email: request.body.email,
@@ -29,33 +29,10 @@ app.post('/postquery', (request, response) => {
 
   dbconnection.insert(object);
 });
-//   dbconnection.rohini -
-//     trainee
-//       .insert(object)
-//       .then((data) => {
-//         console.log('register successfully ', data);
-//         let data1;
-//         if (data['id']) {
-//           data1 = {
-//             message: 'Registered Successfully',
-//             status: 'success',
-//             response: data,
-//           };
-//         }
-//         res.send(data1);
-//       })
-//       .catch((error) => {
-//         res.send({
-//           message: 'failed to register',
-//           status: 'error',
-//           error: error,
-//         });
-//       });
-// });
 
 app.get('/getUser', (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type: 'userid',
     },
@@ -69,9 +46,9 @@ app.get('/getUser', (request, response) => {
   });
 });
 app.get('/getUserId/:id', (request, response) => {
-  dbconnection.getId(request.params.id, 'rohini-trainee').then((res) => {
+  dbconnection.getId(request.params.id, 'rohini-trainee').then((_3res) => {
     if (res) {
-      response.send(res);
+      response.send(_3res);
     } else {
       response.send('error');
     }
@@ -81,9 +58,9 @@ app.get('/getUserId/:id', (request, response) => {
 app.delete('/delete/:id/:id1', (request, response) => {
   dbconnection
     .del_id(request.params.id, request.params.id1, 'rohini-trainee')
-    .then((res) => {
+    .then((_4res) => {
       if (res) {
-        response.send(res);
+        response.send(_4res);
       } else {
         response.send('error');
       }
@@ -92,23 +69,23 @@ app.delete('/delete/:id/:id1', (request, response) => {
 
 app.get('/getadmin', (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       type: 'adminid',
     },
   };
-  dbconnection.get(data, 'rohini-trainee').then((res) => {
+  dbconnection.get(data, 'rohini-trainee').then((_2res) => {
     if (res) {
-      response.send(res);
+      response.send(_2res);
     } else {
       response.send('error');
     }
   });
 });
 app.get('/getadminId/:id', (request, response) => {
-  dbconnection.getId(request.params.id, 'rohini-trainee').then((res) => {
+  dbconnection.getId(request.params.id, 'rohini-trainee').then((_1res) => {
     if (res) {
-      response.send(res);
+      response.send(_1res);
     } else {
       response.send('error');
     }
@@ -125,15 +102,15 @@ app.listen(port, (err) => {
 
 app.post('/getUsers', (request, response) => {
   console.log(request);
-  var data = {
+  let data = {
     selector: {
       username: request.username,
       password: request.password,
     },
   };
-  dbconnection.get(data, 'rohini-trainee').then((res) => {
+  dbconnection.get(data, 'rohini-trainee').then((_res) => {
     if (res) {
-      response.send(res);
+      response.send(_res);
     } else {
       response.send('error');
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { DatabaseServicesService } from '../database-services.service';
 import * as lodash from'lodash'
 @Component({

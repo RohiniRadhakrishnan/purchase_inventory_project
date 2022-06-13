@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder,Validators,NgForm } from '@angular/forms';
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseServicesService } from '../database-services.service';
 import { DbservicesService } from '../dbservices.service';
@@ -62,13 +62,15 @@ submit(){
   this.api.add2("rohini-trainee",this.addinfo.value).subscribe(res=>{
     console.log(res);
     this.toastr.success("adddtional info completed sucessfully")
-   },rej=>{
+   },_rej=>{
+     // TO DO document why this arrow function is empty
+   
    });
   }
 
 
 deluser(data: any, data1: any) {
-  this.apis.remove(data._id, data1._rev).subscribe((res) => {
+  this.apis.remove(data._id, data1._rev).subscribe((_res) => {
     alert('Your Data has been deleted from the database.');
     location.reload();
   });

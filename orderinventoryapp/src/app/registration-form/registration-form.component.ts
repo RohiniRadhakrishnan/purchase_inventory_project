@@ -16,18 +16,13 @@ export class RegistrationFormComponent implements OnInit {
     private formbuilder: FormBuilder,
     private api: DbservicesService,
     private router:Router   ) {
-    // this.api.getconnecting().subscribe(data =>{
-    //  console.log(data)
-    // } )
+    
    }
   
    ngOnInit(): void {
     this.registerform = this.formbuilder.group({
      username: ['', Validators.required],
-    //  phone: ['', [ Validators.required,
-    //   Validators.pattern("^[0-9]*$"),
-    //   Validators.minLength(10), Validators.maxLength(10)]],
-    //  password: ['', Validators.required],
+   
     phone: ['',[Validators.required, Validators.min(1000000000),Validators.max(9999999999)]],
 
     email: ['',[Validators.required,Validators.pattern("[a-zA-Z0-9]*@gmail.com")]],
@@ -41,11 +36,9 @@ export class RegistrationFormComponent implements OnInit {
     ],
 
     });
-    // console.log(this.registerform);
    }
    register(Formvalue:NgForm ) {
     console.log(Formvalue);
-    // alert('Your Data Posted....');
     this.api.signupdata(Formvalue).subscribe((data) => {
      console.log(data);
     alert('Your Data Posted....');

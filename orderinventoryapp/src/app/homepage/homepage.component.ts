@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+     // TO DO document why this constructor is empty
+   
+    
+   }
 
   ngOnInit(): void {
+    // TO DO document why this method 'ngOnInit' is empty
+  
   }
 
 }

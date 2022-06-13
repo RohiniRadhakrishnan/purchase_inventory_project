@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderplacedComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    // TO DO document why this method 'ngOnInit' is empty
+    
+  }
+  
 
   ngOnInit(): void {
+    // TO DO document why this method 'ngOnInit' is empty
+  
   }
 
 }

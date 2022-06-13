@@ -62,67 +62,22 @@ export class ProductsComponent implements OnInit {
   get  total_Qty (){
     return this.addform.get(' total_Qty');
   }
-  // submit(FormValue: NgForm){
-  //   this.api.logindata(FormValue).subscribe(
-  //     (data: any) => {
-  //       console.log(alert('Data posted'));
-  //       this.addform.reset();
-  //     },
-  //     (rej: string) => {
-  //       console.log('Error' + rej);
-  //     }
-  //   );
-  //   console.log(FormValue);
-  // }
-//   addCart(obj:any){
-    
-//     this.userproducts.push(obj);
-//   // console.log(this.userproducts)
-// }
-// cart(){
-// for(var i=1;i<this.userproducts.length;i++)
-// {
-// this.store=this.userproducts;
-// console.log("store=",this.store);
-// // console.log("store object",this.store.obj)
-// }
-// }
+
   submit(){
  
 
       this.api.add1("rohini-trainee",this.addform.value).subscribe(res=>{
       console.log(res);
       this.toastr.success("product Added successfully")
-     },rej=>{
+     },_rej=>{
        this.toastr.error("product failed to add")
      });
-    //  this.api.get("rohini-trainee").subscribe(res=>{
-    //   console.log(res);
-    //   alert("the data is Retrived");
-    //   window.location.reload();
-    //  },rej=>{
-    //   alert("data was not retrived!!")
-    //  });
+
     
     
     
     }
-//      add(){
-//       //  console.log(this.addform.value);
-//        console.log(this.addform.value);
-//        this.object2=[
-//         {pro_img:this.pro_img},
-         
-//         {pro_name:this.pro_name},
-//         {pro_price:this.pro_price},
-//         {quantity:this.quantity},
-//         {total_Qty:this.total_Qty},
-//        ]
 
-// //  this.addCart(this.object2)
-    
-    
-// }
 
 
 dontallow(event:any){

@@ -21,8 +21,7 @@ temp:any;
         this.alluser=this.alluser.docs;
           console.log(this.alluser);
        this.temp=this.alluser.map((x: { user: any; }) =>  x.user)
-        // const lkpKeys=  '"'+ this.temp.join('","') +'"'
-      //   console.log(this.temp[0])
+        
       this.api.getAllOrderByIdsPost(this.temp).subscribe( (result:any)=>{
       const userData = result.rows.map((el:any)=> el.doc);
       this.alluser.forEach((element:any) => {
