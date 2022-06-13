@@ -60,6 +60,7 @@
   <h3 class="fs-4 mb-3">Vendor Addtional Info</h3>
   <div class="col">
     <table class="table bg-white rounded shadow-sm table-hover">
+      <caption></caption>
       <thead>
         <tr>
           <th scope="col">shopname</th>
@@ -70,22 +71,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let obj of mydata">
-          <td scope="row">{{ obj.shopname }}</td>
-          <td scope="row">{{ obj.vtype }}</td>
+          <td>{{ obj.shopname }}</td>
+          <td>{{ obj.vtype }}</td>
 
-          <td scope="row">
+          <td>
             <button class="btn btn-dark" (click)="deluser(obj, obj)">
               Delete
             </button>
           </td>
-          <!-- <td scope="row">
-            <button
-              class="btn btn-dark"
-              (click)="update(obj._id, obj._rev)"
-            >
-              update
-            </button>
-          </td> -->
         </tr>
       </tbody>
     </table>

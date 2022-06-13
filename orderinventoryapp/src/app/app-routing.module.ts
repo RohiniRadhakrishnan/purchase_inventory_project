@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-// import { HomeComponent } from './home/home.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
  import { VendorLoginComponent } from './vendor-login/vendor-login.component';
  import { DashboardComponent } from './dashboard/dashboard.component';
-// import { ProductsComponent } from './products/products.component';
 import { ProductsComponent } from './products/products.component';
-//import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomepageComponent } from './homepage/homepage.component';

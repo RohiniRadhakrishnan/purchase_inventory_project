@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class DbservicesService {
-  logindata(FormValue: NgForm) {
+  logindata(_FormValue: NgForm) {
     throw new Error('Method not implemented.');
   }
   constructor(private http: HttpClient) {}

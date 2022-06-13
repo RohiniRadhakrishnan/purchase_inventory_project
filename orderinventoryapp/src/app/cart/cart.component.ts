@@ -24,37 +24,30 @@ count:any=0;
 type:string="orderitems";
 
 inc(pro:any){
-  // console.log(pro.qnt);
-  // pro.qnt =pro.qnt+1;
+
   if(pro.quantity != 10){
         pro.quantity+= 1;
       }
     }
 
 dec(pro:any){
-  // console.log(pro.qnt);
-  // pro.qnt =pro.qnt-1;
+
   if(pro.quantity != 1){
     pro.quantity -= 1;
   }
 }
 addCart(obj:any){
-    // console.log("hii");
+
     
       this.api.userproducts.push(obj);
       console.log( "obj1",obj);
       localStorage.setItem('localCart', JSON.stringify(obj));
 
-
-      // for (const iterator of parse) {
-      //   this.userproducts.push(iterator);
-      // }
-      // this.count=this.count+1;
       console.log(this.count,'count');
 
       
       this.toastr.success('add your product in a cart')
-    // console.log(this.userproducts)
+
 }
 cart(){
 
@@ -69,10 +62,7 @@ this.store=this.userproducts;
 
   ngOnInit(): void {
     // TO DO document why this method 'ngOnInit' is empty
-    // var lo:any=localStorage.getItem('localCart');
-    // var parse:any=JSON.parse(lo);
-    // console.log(parse);
-    // this.userproducts.push(parse);
+  
   
   }
   
