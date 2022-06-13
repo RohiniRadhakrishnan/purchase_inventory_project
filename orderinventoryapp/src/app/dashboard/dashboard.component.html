@@ -4,43 +4,37 @@
       <div
         class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
       >
-        <i class="fas fa-user-secret me-2"></i>FRUITY..!
+        <em class="fas fa-user-secret me-2"></em>FRUITY..!
       </div>
       <div class="list-group list-group-flush my-3">
         <a
           href="#"
-          class="list-group-item list-group-item-action bg-transparent second-text active"
-          ><i class="fas fa-tachometer-alt me-2"></i
-          ><a routerLink="/admindashboard">Dashboard</a></a
-        >
-        <a
-          href="#"
           class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-project-diagram me-2"></i
+          ><em class="fas fa-project-diagram me-2"></em
           ><a routerLink="/add">Add Products</a></a
         >
         <a
           href="#"
           class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-chart-line me-2"></i
+          ><em class="fas fa-chart-line me-2"></em
           ><a routerLink="/billgenerator"></a
         ></a>
         <a
           href="#"
           class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-paperclip me-2"></i
+          ><em class="fas fa-paperclip me-2"></em
           ><a routerLink="/list">Purchased list</a></a
         >
         <a
           href="#"
           class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
-          ><i class="fas fa-shopping-cart me-2"></i
+          ><em class="fas fa-shopping-cart me-2"></em
         ></a>
 
         <a
           href="#"
           class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
-          ><i class="fas fa-power-off me-2"></i
+          ><em class="fas fa-power-off me-2"></em
           ><a routerLink="/admin">Logout</a></a
         >
       </div>
@@ -51,10 +45,10 @@
         class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4"
       >
         <div class="d-flex align-items-center">
-          <i
+          <em
             class="fas fa-align-left primary-text fs-4 me-3"
             id="menu-toggle"
-          ></i>
+          ></em>
           <h2 class="fs-2 m-0">Dashboard</h2>
         </div>
 
@@ -81,7 +75,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="fas fa-user me-2"></i>ROHINI KRISHNAN
+                <em class="fas fa-user me-2"></em>ROHINI KRISHNAN
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -97,6 +91,7 @@
         <h3 class="fs-4 mb-3">Registred vendors</h3>
         <div class="col">
           <table class="table bg-white rounded shadow-sm table-hover">
+            <caption></caption>
             <thead>
               <tr>
                 <th scope="col">Username</th>
@@ -109,12 +104,12 @@
             </thead>
             <tbody>
               <tr *ngFor="let obj of object">
-                <td scope="row">{{ obj.username }}</td>
-                <td scope="row">{{ obj.phone }}</td>
-                <td scope="row">{{ obj.email }}</td>
-                <td scope="row">{{ obj.address }}</td>
+                <td>{{ obj.username }}</td>
+                <td>{{ obj.phone }}</td>
+                <td>{{ obj.email }}</td>
+                <td>{{ obj.address }}</td>
 
-                <td scope="row">
+                <td>
                   <button class="btn btn-dark" (click)="deluser(obj, obj)">
                     Delete
                   </button>

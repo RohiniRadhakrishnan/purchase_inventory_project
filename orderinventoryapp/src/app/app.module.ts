@@ -14,7 +14,6 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { PurchasedListComponent } from './purchased-list/purchased-list.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -23,7 +22,8 @@ import { HttpCallInterceptor } from './registration-form/interceptor';
 import { OrderplacedComponent } from './orderplaced/orderplaced.component';
 import { MycartsComponent } from './mycarts/mycarts.component';
 import { AdditionalInfoComponent } from './additional-info/additional-info.component';
-import { UdashboaedComponent } from './udashboaed/udashboaed.component';
+import { PurchasedItemsComponent } from './purchased-items/purchased-items.component';
+import { OrderinfoComponent } from './orderinfo/orderinfo.component';
 // import { FilterPipe } from './filter.pipe';
 @NgModule({
   declarations: [
@@ -39,11 +39,12 @@ import { UdashboaedComponent } from './udashboaed/udashboaed.component';
     CartComponent,
     ContactComponent,
     HomepageComponent,
-    PurchasedListComponent,
     OrderplacedComponent,
     MycartsComponent,
     AdditionalInfoComponent,
-    UdashboaedComponent,
+   
+    PurchasedItemsComponent,
+    OrderinfoComponent,
     // FilterPipe,
     // InterceptorComponent,
     // CartComponent,

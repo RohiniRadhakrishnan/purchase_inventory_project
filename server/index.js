@@ -122,3 +122,20 @@ app.listen(port, (err) => {
 
   console.log(`server is listening on http://localhost:${port}`);
 });
+
+app.post('/getUsers', (request, response) => {
+  console.log(request);
+  var data = {
+    selector: {
+      username: request.username,
+      password: request.password,
+    },
+  };
+  dbconnection.get(data, 'rohini-trainee').then((res) => {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send('error');
+    }
+  });
+});

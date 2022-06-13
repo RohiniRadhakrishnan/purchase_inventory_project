@@ -1,11 +1,9 @@
 <div class="col-md-12 text-right">
   <div class="'cart_icon" (click)="NavigateToCart()">
-    <em class="bi bi-cart"></em>
+    <em class="bi bi-cart">{{ this.api.cartcount }}</em>
   </div>
 </div>
-<!-- <button type="button" (click)="fetchproduct()">
-  click here to see the products
-</button> -->
+
 <div class="container">
   <table class="table">
     <caption></caption>
@@ -18,23 +16,25 @@
       <td>Reduce</td>
       <td>stock</td>
 
-      <td scope="col">Total</td>
-      <td scope="col">balance</td>
-      <td scope="col">your wishlist</td>
-      <td scope="col"></td>
+      <td>Total</td>
+      <td>balance</td>
+      <td>your wishlist</td>
+      <td></td>
     </thead>
     <tbody>
       <tr *ngFor="let pro of product">
-        <td scope="row"><img src="{{ pro.pro_img }}" width="100px" /></td>
+        <td>
+          <img src="{{ pro.pro_img }}" width="100px" alt="pro_img" />
+        </td>
 
-        <td scope="row">{{ pro.pro_name }}</td>
-        <td scope="row">₹{{ pro.pro_price }}</td>
+        <td>{{ pro.pro_name }}</td>
+        <td>₹{{ pro.pro_price }}</td>
         <td>
           <button type="button" class="btn text-dark" (click)="inc(pro)">
             <em class="bi bi-plus"></em>
           </button>
         </td>
-        <td scope="row">
+        <td>
           <span>{{ pro.quantity }}kg</span>
         </td>
         <td>
@@ -43,7 +43,7 @@
           </button>
         </td>
 
-        <td scope="row">{{ pro.total_Qty }}</td>
+        <td>{{ pro.total_Qty }}</td>
 
         <td>
           {{ pro.quantity * pro.pro_price || "" }}
@@ -53,7 +53,9 @@
         </td>
 
         <div class="addtocart">
-          <button padding (click)="addCart(pro)">Add To Cart</button>
+          <button padding (click)="addCart(pro)" (click)="this.api.count()">
+            Add To Cart
+          </button>
         </div>
       </tr>
     </tbody>

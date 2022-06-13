@@ -20,6 +20,7 @@ quantity:any=[];
 total_Qty:any=[];
 store:any;
 product:any=[];
+count:any=0;
 type:string="orderitems";
 
 inc(pro:any){
@@ -38,8 +39,21 @@ dec(pro:any){
   }
 }
 addCart(obj:any){
+    // console.log("hii");
     
-      this.userproducts.push(obj);
+      this.api.userproducts.push(obj);
+      console.log( "obj1",obj);
+      localStorage.setItem('localCart', JSON.stringify(obj));
+
+
+      // for (const iterator of parse) {
+      //   this.userproducts.push(iterator);
+      // }
+      // this.count=this.count+1;
+      console.log(this.count,'count');
+
+      
+      this.toastr.success('add your product in a cart')
     // console.log(this.userproducts)
 }
 cart(){
@@ -49,11 +63,17 @@ this.store=this.userproducts;
 }
 
 
-  constructor(private api:DatabaseServicesService,private router:Router,private toastr:ToastrService) { 
+  constructor(public api:DatabaseServicesService,private router:Router,private toastr:ToastrService) { 
     this.fetchproduct();
   }
 
   ngOnInit(): void {
+    // TO DO document why this method 'ngOnInit' is empty
+    // var lo:any=localStorage.getItem('localCart');
+    // var parse:any=JSON.parse(lo);
+    // console.log(parse);
+    // this.userproducts.push(parse);
+  
   }
   
   fetchproduct(){
@@ -65,17 +85,19 @@ this.store=this.userproducts;
         for(const i of this.alluser){
               console.log(i);
               this.product.push(i);
-              console.log(this.product.pro_name,this.product.pro_price,this.product.quantity,this.product.total_Qty);
+              console.log(i.pro_name,i.pro_price,i.quantity,i.total_Qty);
 
             }
             this.toastr.success('add your product in a cart')
-    },rej=>{
+    },_rej=>{
+      console.log("Product not added in cart");
     });
   }
 
   NavigateToCart(){
+    console.log("products",this.api.userproducts);
     const data={
-      products :JSON.stringify(this.store),
+      products :JSON.stringify(this.api.userproducts),
       "key":"value" 
     }
 this.router.navigate(['/mycart'],{

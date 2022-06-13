@@ -8,13 +8,15 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class DatabaseServicesService {
-  fetchData(arg0: string) {
+  fetchData(_arg0: string) {
     throw new Error('Method not implemented.');
   }
   userid: any;
   userData: any;
   id: any;
-  logindata(FormValue: NgForm) {
+  cartcount:number = 0;
+  userproducts:any=[];
+  logindata(_FormValue: NgForm) {
     throw new Error('Method not implemented.');
   }
   url = 'https://75b0afe3-3fa7-477b-8352-bdcfcd522a16-bluemix.cloudantnosqldb.appdomain.cloud/'
@@ -23,7 +25,7 @@ export class DatabaseServicesService {
   basicAuth = 'Basic ' + btoa(this.dbUserName + ':' + this.dbPassword);
   
   constructor(private http:HttpClient) { }
-  
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -32,7 +34,6 @@ export class DatabaseServicesService {
   };
 
   add(db: string, doc: object): Observable<{}> {
-    // const url2 = `${this.url}${db}`;
     const url=this.url+db;
     return this.http.post(url, doc, this.httpOptions)
   }
@@ -42,6 +43,18 @@ export class DatabaseServicesService {
     return this.http.get(url,this.httpOptions)
 
   }
+  getall(db:string, id:number): Observable<{}>{
+      const url = this.url+db+id;
+      return this.http.get(url, this.httpOptions)
+     }
+    updateData(changedValue:object, db: string, id: number, rev: number) {
+    
+      const changeObj = changedValue;
+      const url = `${this.url + db}/${id}?rev=${rev}`;
+      return this.http.put(url, changeObj, this.httpOptions);
+     }
+    
+    
   getAllDocsByKeys(db: any, data: any) {
     const url = this.url + db + '/_all_docs?include_docs=true';
     const basicAuth = 'Basic ' + btoa(this.dbUserName + ':' + this.dbPassword);
@@ -87,15 +100,69 @@ export class DatabaseServicesService {
 
 
     }
-    viewdocument(type:string){
-      this.userData = JSON.parse(localStorage.getItem('usrData') || '{}')
-      this.userid = this.userData
-      this.id = this.userid._id;
-      console.log(this.id);
-      const geturl = `${this.url}rohini-trainee/_design/purchaseDtls/_view/new-view?include_docs=true&keys=["${type + this.id}"]`;
-return this.http.get(geturl, this.httpOptions);
+    viewdocument(type:string,id:any){
+      const geturl = `${this.url}rohini-trainee/_design/purchaseDtls/_view/new-view?include_docs=true`;
+      const doc ={
+        "keys":[type+id]
+       }  
+      return this.http.post(geturl,doc,this.httpOptions);
 
 
     }
+    postByTypedUser( id: any) {
+      let url = this.url + 'rohini-trainee/_find'
+      let typedData = {
+        selector: {
+ 
+          order: id
+        },
+      };
+      return this.http.post(url, typedData, this.httpOptions)
+  
+    }
+    fetchDataByType(type:string,id:any){
+        const url=this.url+'rohini-trainee'+'/'+'_design/' +'purchaseDtls/' + '_view/' + 'new-view' + '?include_docs=true';
+        const doc ={
+         "keys":[type+id]
+        }
+        return this.http.post(url,doc,this.httpOptions);
+       }
+userDetail(selectorObject: any, db: string) {
+        const url = `${this.url + db}/_find`;
+        const basicAuth = 'Basic ' + btoa(this. dbUserName + ':' + this.  dbPassword);
+        const object = {
+        selector: selectorObject,
+        };
+        return this.http.post(url, object, {
+        headers: { Authorization: basicAuth },
+        });
+        }
+
+getAllOrderByIds(key:any)
+{
+  const url = `${this.url}rohini-trainee/_all_docs?include_docs=true&keys=[${key}]`;
+  return this.http.get(url,this.httpOptions);
+}
+getAllOrderByIdsPost(key:any)
+{
+  const url = `${this.url}rohini-trainee/_all_docs?include_docs=true`;
+  const data = {keys:key}
+  return this.http.post(url,data ,this.httpOptions);
+}
+
+FindApiCall(selector:any){
+  let url = this.url + 'rohini-trainee/_find'
+  let typedData = {
+    selector:selector
+  };
+  return this.http.post(url, typedData, this.httpOptions)
+
+}
+count(){
+  this.cartcount++;
+}  
+        
+      
+      
   }
  

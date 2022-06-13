@@ -51,3 +51,8 @@ tr:nth-child(even) {
 .cart_section{
     padding: 40px,0;
 }
+.total{
+  text-align: center;
+  
+
+}

@@ -15,20 +15,18 @@ export class DbservicesService {
   signupdata(formobject: any) {
     return this.http.post('http://localhost:8000/postquery', formobject);
   }
-  // billingdata(formobject: any) {
-  //   return this.http.post('http://localhost:8000/post_query', formobject);
-  // }
+
 
   getUser() {
     return this.http.get('http://localhost:8000/getUser/');
+  }
+  getUsers(data:any) {
+    return this.http.post(`http://localhost:8000/getUsers/`,data);
   }
   getUserId(id: any) {
     return this.http.get(`http://localhost:8000/getUserId/${id}`);
   }
 
-  // getbill() {
-  //   return this.http.get('http://localhost:8000/getbill/');
-  // }
 
   remove(id: any, id1: any) {
     return this.http.delete(`http://localhost:8000/delete/${id}/${id1}`);
@@ -41,4 +39,11 @@ export class DbservicesService {
   getadminId(id: any) {
     return this.http.get(`http://localhost:8000/getadminId/${id}`);
   }
+  getshopname() {
+    return this.http.get('http://localhost:8000/getadmin/');
+  }
+  getvtype() {
+    return this.http.get('http://localhost:8000/getadmin/');
+  }
+  
 }

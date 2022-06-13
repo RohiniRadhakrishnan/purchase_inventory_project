@@ -125,6 +125,12 @@ export class ProductsComponent implements OnInit {
 // }
 
 
-
+dontallow(event:any){
+ 
+  if(event.code=='Minus'|| event.key=='-'||event.keycode=='189'){
+  console.log(event);
+  event.preventdefault();
+  }
+}
 
 }

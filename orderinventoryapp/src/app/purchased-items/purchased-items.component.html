@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Vendorname</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of alluser">
+      <td>{{ user.userData.username }}</td>
+      <td>{{ user.userData.phone }}</td>
+      <td>{{ user.userData.email }}</td>
+      <td>{{ user.userData.address }}</td>
+      <td>
+        <button class="btn btn-success" (click)="orderview(user)">order</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

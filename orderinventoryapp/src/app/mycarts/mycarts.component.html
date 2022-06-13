@@ -8,8 +8,12 @@
         <th>productName</th>
 
         <th>price</th>
+        <th></th>
         <th>Quantity</th>
+        <th></th>
+
         <th>totalPrice</th>
+        <th></th>
       </thead>
       <tr *ngFor="let prod of product">
         <td>
@@ -17,14 +21,31 @@
         </td>
         <td>{{ prod.pro_name }}</td>
         <td>{{ prod.pro_price }}</td>
+        <td>
+          <button type="button" class="btn text-dark" (click)="inc(prod)">
+            <em class="bi bi-plus"></em>
+          </button>
+        </td>
 
         <td>{{ prod.quantity }}</td>
+        <td>
+          <button type="button" class="btn text-dark" (click)="dec(prod)">
+            <em class="bi bi-file-minus"></em>
+          </button>
+        </td>
         <td>{{ prod.pro_price * prod.quantity }}</td>
+        <td>
+          <!-- <button class="btn btn-dark" (click)="deluser(prod, prod)">
+            Delete
+          </button> -->
+        </td>
       </tr>
     </table>
   </div>
-  <div class="total">
-    {{ total }}
-  </div>
+  <div class="total">Subtotal:{{ total }}</div>
   <button padding (click)="order()">place your order</button>
+
+  <button class="btn btn-success" (click)="backcart()">
+    Add another products
+  </button>
 </section>

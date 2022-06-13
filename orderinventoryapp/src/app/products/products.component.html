@@ -6,113 +6,117 @@
     <div class="card-body mx-auto">
       <form [formGroup]="addform" class="myform" (ngSubmit)="submit()">
         <div action="#" id="form" method="post">
-          <div class="container">
-            <div class="tab tab-2">
-              <div class="field">
-                <label for="pro_img" class="fa fa-lock">Product:</label>
-                <input
-                  class="form-contorl"
-                  type="text"
-                  name="report"
-                  placeholder="Enter your Pro.pro_img"
-                  id="pro_img"
-                  formControlName="pro_img"
-                /><span
-                  class="text-danger"
-                  *ngIf="
-                    addform.controls.pro_img.errors &&
-                    addform.controls.pro_img.touched
-                  "
-                  ><br />enter prodouct image
-                </span>
-              </div>
-              <div class="field">
-                <label for="Pro_name" class="fa fa-lock">Product Name:</label>
-                <input
-                  class="form-contorl"
-                  type="text"
-                  name="report"
-                  placeholder="Enter your Pro.name"
-                  id="pro_name"
-                  formControlName="pro_name"
-                /><span
-                  class="text-danger"
-                  *ngIf="
-                    addform.controls.pro_name.errors &&
-                    addform.controls.pro_name.touched
-                  "
-                  ><br />enter prodouct name
-                </span>
-              </div>
-              <div class="field">
-                <label for="Pro_price" class="fa fa-lock">product price:</label>
-                <input
-                  class="form-contorl"
-                  type="number"
-                  name="report"
-                  placeholder="Enter your Pro_price"
-                  id="pro_price"
-                  formControlName="pro_price"
-                  min="1"
-                /><span
-                  class="text-danger"
-                  *ngIf="
-                    addform.controls.pro_price.errors &&
-                    addform.controls.pro_price.touched
-                  "
-                  ><br />please enter your prodouct price
-                </span>
-              </div>
+          <div class="field">
+            <label for="pro_img" class="text-dark">Product:</label>
+            <input
+              class="form-contorl"
+              type="text"
+              name="report"
+              placeholder="Enter your Pro.pro_img"
+              id="pro_img"
+              formControlName="pro_img"
+            /><span
+              class="text-danger"
+              *ngIf="
+                addform.controls.pro_img.errors &&
+                addform.controls.pro_img.touched
+              "
+              ><br />enter product image
+            </span>
+          </div>
+          <div class="field">
+            <label for="Pro_name" class="text-dark">Product Name:</label>
+            <input
+              class="form-contorl"
+              type="text"
+              name="report"
+              placeholder="Enter your Pro.name"
+              id="pro_name"
+              formControlName="pro_name"
+              pattern="[a-zA-z]*"
+            /><span
+              class="text-danger"
+              *ngIf="
+                addform.controls.pro_name.errors &&
+                addform.controls.pro_name.touched
+              "
+              ><br />enter product name
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                addform.controls['username'].dirty &&
+                addform.hasError('pattern', 'uername')
+              "
+            >
+              *Name not match</span
+            >
+          </div>
+          <div class="field">
+            <label for="Pro_price" class="text-dark">Product Price:</label>
+            <input
+              class="form-contorl"
+              type="number"
+              name="report"
+              placeholder="Enter your Pro_price"
+              id="pro_price"
+              formControlName="pro_price"
+              min="1"
+            /><span
+              class="text-danger"
+              *ngIf="
+                addform.controls.pro_price.errors &&
+                addform.controls.pro_price.touched
+              "
+              ><br />please enter your product price
+            </span>
+          </div>
 
-              <div class="field">
-                <label for="report" class="fa fa-lock"> product Qty :</label>
-                <input
-                  type="number"
-                  name="report"
-                  placeholder="Enter your Quantity"
-                  id="quantity"
-                  formControlName="quantity"
-                  class="form-control"
-                  min="1"
-                />
-                <span
-                  class="text-danger"
-                  *ngIf="
-                    addform.controls.quantity.errors &&
-                    addform.controls.quantity.touched
-                  "
-                >
-                  <br />enter the quantity
-                </span>
-              </div>
-              <div class="field">
-                <label for="report" class="fa fa-lock"> total Quantity :</label>
-                <input
-                  type="number"
-                  name="report"
-                  placeholder="Enter your Quantity"
-                  id=" total_Qty"
-                  formControlName="total_Qty"
-                  class="form-control"
-                  min="1"
-                />
-                <span
-                  class="text-danger"
-                  *ngIf="
-                    addform.controls.total_Qty.errors &&
-                    addform.controls.total_Qty.touched
-                  "
-                >
-                  <br />enter the total quantity
-                </span>
-              </div>
+          <div class="field">
+            <label for="report" class="text-dark"> Product Quantity :</label>
+            <input
+              type="text"
+              name="report"
+              placeholder="Enter your Quantity"
+              id="quantity"
+              formControlName="quantity"
+              (keydown)="dontallow($event)"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                addform.controls.quantity.errors &&
+                addform.controls.quantity.touched
+              "
+            >
+              <br />enter the quantity
+            </span>
+          </div>
+          <div class="field">
+            <label for="report" class="text-dark"> Total Quantity :</label>
+            <input
+              type="text"
+              name="report"
+              placeholder="Enter your Quantity"
+              id=" total_Qty"
+              formControlName="total_Qty"
+              min="1"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                addform.controls.total_Qty.errors &&
+                addform.controls.total_Qty.touched
+              "
+            >
+              <br />enter the total quantity
+            </span>
+          </div>
 
-              <div class="text-center">
-                <button id="submitButton" type="submit" class="btn btn-primary">
-                  Add products
-                </button>
-              </div>
-            </div>
+          <div class="text-center">
+            <button id="submitButton" type="submit" class="btn btn-primary">
+              Add products
+            </button>
           </div>
         </div>
       </form>

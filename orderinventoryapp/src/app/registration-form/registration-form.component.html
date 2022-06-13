@@ -29,7 +29,7 @@
           <div class="field">
             <label for="phone" class="text-dark">Phone Number :</label>
             <input
-              type="tel"
+              type="number"
               formControlName="phone"
               id="phone"
               class="form-control"
@@ -38,12 +38,12 @@
             <span
               class="text-danger"
               *ngIf="
-                registerform.controls['phone'].touched &&
-                registerform.hasError('required', 'phone')
+                registerform.controls.phone.errors &&
+                registerform.controls.phone.touched
               "
             >
-              *Enter Valid 10 digit mobile number!!</span
-            >
+              <br />Invalid Mobile Number
+            </span>
           </div>
 
           <div class="field">
@@ -58,12 +58,12 @@
             <span
               class="text-danger"
               *ngIf="
-                registerform.controls['email'].touched &&
-                registerform.hasError('required', 'email')
+                registerform.controls.email.errors &&
+                registerform.controls.email.touched
               "
             >
-              *Enter Valid Gmail!!</span
-            >
+              <br />Invalid Email Address
+            </span>
           </div>
           <div class="field">
             <label for="address" class="text-dark">Address :</label>
@@ -98,12 +98,12 @@
             <span
               class="text-danger"
               *ngIf="
-                registerform.controls['password'].touched &&
-                registerform.hasError('required', 'password')
+                registerform.controls.password.errors &&
+                registerform.controls.password.touched
               "
             >
-              *password is required</span
-            >
+              <br />Atleast 5 character Password is Required
+            </span>
           </div>
 
           <div class="buttons text-center">

@@ -50,12 +50,12 @@
      }
     }
     if (this.flag == 1) {
-      this.toastr.success("valid to access");
+      this.toastr.success("Welcome Admin");
        
      this.router.navigate(['/dashboard']);
     } else {
       
-    this.toastr.error("Not a valid");
+    this.toastr.error("admin access invalid");
        
     }
    }

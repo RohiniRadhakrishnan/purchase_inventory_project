@@ -1,59 +1,99 @@
-<body>
-  <div class="container mt-5">
-    <div class="card mx-auto">
-      <div class="card-header">
-        <h1 class="text-center text-dark">vendors Addtional info</h1>
-      </div>
-      <div class="card-body mx-auto">
-        <form class="myform" [formGroup]="addinfo" (ngSubmit)="submit()">
-          <div class="field">
-            <label for="shop name" class="text-dark">SHOP NAME :</label>
-            <input
-              type="text"
-              formControlName="shopname"
-              id="shopname"
-              class="form-control"
-              placeholder="Enter your shopname here"
-            />
-            <span
-              class="text-danger"
-              *ngIf="
-                addinfo.controls['shopname'].touched &&
-                addinfo.hasError('required', 'shopname')
-              "
-            >
-              *shopname is required!!</span
-            >
-          </div>
+<div class="container mt-5" *ngIf="mydata.length == 0">
+  <div class="card mx-auto">
+    <div class="card-header">
+      <h1 class="text-center text-dark">vendors Addtional info</h1>
+    </div>
+    <div class="card-body mx-auto">
+      <form class="myform" [formGroup]="addinfo" (ngSubmit)="submit()">
+        <div class="field">
+          <label for="shop name" class="text-dark">SHOP NAME :</label>
+          <input
+            type="text"
+            formControlName="shopname"
+            id="shopname"
+            class="form-control"
+            placeholder="Enter your shopname here"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              addinfo.controls['shopname'].touched &&
+              addinfo.hasError('required', 'shopname')
+            "
+          >
+            *shopname is required!!</span
+          >
+        </div>
 
-          <div class="field">
-            <label for="type">vendor type:</label>
-            <select
-              name="vtype"
-              id="vtype"
-              formControlName="vtype"
-              class="form-control"
-            >
-              <option value="Local">Local</option>
-              <option value="International">International</option>
-            </select>
-            <br /><br />
-            <span
-              class="text-danger"
-              *ngIf="
-                addinfo.controls['vtype'].touched &&
-                addinfo.hasError('required', 'vtype')
-              "
-              >*vendor type is required!!</span
-            >
-          </div>
-          <div class="text-center">
-            <button id="submitButton" type="submit" class="btn btn-primary">
-              Add products
-            </button>
-          </div>
-        </form>
-      </div>
+        <div class="field">
+          <label for="type">vendor type:</label>
+          <select
+            name="vtype"
+            id="vtype"
+            formControlName="vtype"
+            class="form-control"
+          >
+            <option value="Local">Local</option>
+            <option value="International">International</option>
+          </select>
+          <br /><br />
+          <span
+            class="text-danger"
+            *ngIf="
+              addinfo.controls['vtype'].touched &&
+              addinfo.hasError('required', 'vtype')
+            "
+            >*vendor type is required!!</span
+          >
+        </div>
+        <div class="text-center">
+          <button id="submitButton" type="submit" class="btn btn-primary">
+            Add products
+          </button>
+        </div>
+      </form>
     </div>
   </div>
-</body>
+</div>
+
+<div class="row my-5" *ngIf="mydata.length >= 1">
+  <h3 class="fs-4 mb-3">Vendor Addtional Info</h3>
+  <div class="col">
+    <table class="table bg-white rounded shadow-sm table-hover">
+      <thead>
+        <tr>
+          <th scope="col">shopname</th>
+          <th scope="col">vtype</th>
+
+          <th scope="col">Remove User</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of mydata">
+          <td scope="row">{{ obj.shopname }}</td>
+          <td scope="row">{{ obj.vtype }}</td>
+
+          <td scope="row">
+            <button class="btn btn-dark" (click)="deluser(obj, obj)">
+              Delete
+            </button>
+          </td>
+          <!-- <td scope="row">
+            <button
+              class="btn btn-dark"
+              (click)="update(obj._id, obj._rev)"
+            >
+              update
+            </button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+    <br />
+  </div>
+</div>
+<div class="col-md-12 bg-light text-center">
+  <button type="button" class="btn btn-warning">
+    <a routerLink="/cart">Products</a>
+  </button>
+</div>
