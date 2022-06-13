@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   } 
 
   ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
+    // TO DO document why this method 'ngOnInit' is empty
   
   }
 
