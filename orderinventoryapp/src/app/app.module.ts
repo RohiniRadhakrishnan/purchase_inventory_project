@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { VendorLoginComponent } from './vendor-login/vendor-login.component';
+// import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
@@ -16,7 +16,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
-import { HttpCallInterceptor } from './registration-form/interceptor';
+import { HttpCallInterceptor } from './interceptor';
 import { OrderplacedComponent } from './orderplaced/orderplaced.component';
 import { MycartsComponent } from './mycarts/mycarts.component';
 import { AdditionalInfoComponent } from './additional-info/additional-info.component';
@@ -25,7 +25,7 @@ import { OrderinfoComponent } from './orderinfo/orderinfo.component';
 @NgModule({
   declarations: [
     AppComponent,
-    VendorLoginComponent,
+    // VendorLoginComponent,
      RegistrationFormComponent,
      AdminLoginComponent,
     HomeComponent,

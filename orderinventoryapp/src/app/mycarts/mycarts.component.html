@@ -9,12 +9,11 @@
         <th>productName</th>
 
         <th>price</th>
-        <th></th>
+        <th class="bts"><em class="bi bi-plus-square-fill"></em></th>
         <th>Quantity</th>
-        <th></th>
+        <th class="bts"><em class="bi bi-dash-square-fill"></em></th>
 
         <th>totalPrice</th>
-        <th></th>
       </thead>
       <tr *ngFor="let prod of product">
         <td>
@@ -23,26 +22,35 @@
         <td>{{ prod.pro_name }}</td>
         <td>{{ prod.pro_price }}</td>
         <td>
-          <button type="button" class="btn text-dark" (click)="inc(prod)">
+          <button type="button" class="qbtn" (click)="inc(prod)">
             <em class="bi bi-plus"></em>
           </button>
         </td>
 
         <td>{{ prod.quantity }}</td>
         <td>
-          <button type="button" class="btn text-dark" (click)="dec(prod)">
+          <button type="button" class="qbtn" (click)="dec(prod)">
             <em class="bi bi-file-minus"></em>
           </button>
         </td>
         <td>{{ prod.pro_price * prod.quantity }}</td>
-        <td></td>
+      </tr>
+      <tr>
+        <td colspan="4"></td>
+        <td>
+          <button class="btn btn-primary" padding (click)="order()">
+            place your order
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="backcart()">
+            Add more products
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success">Subtotal:{{ total }}</button>
+        </td>
       </tr>
     </table>
   </div>
-  <div class="total">Subtotal:{{ total }}</div>
-  <button padding (click)="order()">place your order</button>
-
-  <button class="btn btn-success" (click)="backcart()">
-    Add another products
-  </button>
 </section>

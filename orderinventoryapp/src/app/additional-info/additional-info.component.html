@@ -48,7 +48,7 @@
         </div>
         <div class="text-center">
           <button id="submitButton" type="submit" class="btn btn-primary">
-            Add products
+            submit
           </button>
         </div>
       </form>
@@ -65,20 +65,12 @@
         <tr>
           <th scope="col">shopname</th>
           <th scope="col">vtype</th>
-
-          <th scope="col">Remove User</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let obj of mydata">
           <td>{{ obj.shopname }}</td>
           <td>{{ obj.vtype }}</td>
-
-          <td>
-            <button class="btn btn-dark" (click)="deluser(obj, obj)">
-              Delete
-            </button>
-          </td>
         </tr>
       </tbody>
     </table>

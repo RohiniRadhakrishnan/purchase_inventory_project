@@ -2,7 +2,7 @@ header{
     background: rgb(159, 156, 156);
     padding: 20px 0;
 }
-/* .cart_icon{
+.cart_icon{
     position:relative;
     cursor:pointer;
 }
@@ -10,12 +10,51 @@ header{
     outline: none;
     border:none;
 
-} */
+}
 .cart_icon{
     font-size: 24px;
     color:white;
 }
+.qbtn{
+  font-size: 24px;
+  color:blue
+}
+.bts{
+  font-size: 24px;
+  color:blue;
+}
+.total{
+  text-align: center;
+  margin-bottom: 80px;
+  margin-left: 70%;
+font-size: 30px;
+  width: 300px;
+  padding: 20px;
+  background-color: lightgrey;
+  border: 15px solid green;}
+.btn1{
+  text-align: center;
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid green;
+    padding: 10px;
+    font-size: 30px;
+    margin: 50px;
+    margin-bottom: 120px;
+ 
+}
+.btn2{
+  text-align: center;
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid green;
+    padding: 10px;
+    font-size: 30px;
+    margin: 50px;
+    margin-bottom: 120px;
+}
 .cart_value{
+  
     position: absolute;
     top: 120px;
     right: 0;
@@ -51,8 +90,13 @@ tr:nth-child(even) {
 .cart_section{
     padding: 40px,0;
 }
-.total{
-  text-align: center;
-  
 
+td{
+  text-align: center;
+}
+th{
+  text-align: center;
+}
+.btn{
+  background-color: blue;
 }

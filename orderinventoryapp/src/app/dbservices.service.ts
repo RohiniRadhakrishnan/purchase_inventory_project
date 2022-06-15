@@ -20,9 +20,7 @@ export class DbservicesService {
   getUser() {
     return this.http.get('http://localhost:8000/getUser/');
   }
-  getUsers(data:any) {
-    return this.http.post(`http://localhost:8000/getUsers/`,data);
-  }
+
   getUserId(id: any) {
     return this.http.get(`http://localhost:8000/getUserId/${id}`);
   }
@@ -34,7 +32,7 @@ export class DbservicesService {
 
   //admin
   getadmin() {
-    return this.http.get('http://localhost:8000/getadmin/');
+    return this.http.get('http://localhost:8000/getUser/');
   }
   getadminId(id: any) {
     return this.http.get(`http://localhost:8000/getadminId/${id}`);

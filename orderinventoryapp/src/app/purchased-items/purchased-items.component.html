@@ -1,4 +1,17 @@
-<table class="table bg-white rounded shadow-sm table-hover">
+<label for="back" class="text-light-center"
+  >previous
+  <a routerLink="/dashboard" class="text-primary"
+    ><em class="bi bi-arrow-return-left"></em></a
+></label>
+
+<div class="container" *ngIf="mydata.length == 0">
+  <h1>No Records</h1>
+</div>
+
+<table
+  class="table bg-white rounded shadow-sm table-hover"
+  *ngIf="mydata.length >= 1"
+>
   <caption></caption>
   <thead>
     <tr>

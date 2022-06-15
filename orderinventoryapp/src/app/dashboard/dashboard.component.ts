@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DbservicesService } from '../dbservices.service';
-
+import { Router } from '@angular/router'; 
+import { DatabaseServicesService } from '../database-services.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,12 +13,12 @@ export class DashboardComponent implements OnInit {
   object: any = [];
   alldata: any;
 
-  constructor(private api: DbservicesService) {
-      this.getuser();
+  constructor(private api: DbservicesService, private router:Router,private apis:DatabaseServicesService,private toastr:ToastrService) {
+    // to Do constructor
   }
-  ngOnInit(): void { /* TO DO document why this method 'ngOnInit' is empty */ }
+  ngOnInit(): void { /* TO DO document why this method 'ngOnInit' is empty */ 
 
-  getuser() {
+ 
     this.api.getUser().subscribe((data) => {
       console.log(data);
       this.alldata = data;
@@ -29,10 +31,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  deluser(data: any, data1: any) {
-    this.api.remove(data._id, data1._rev).subscribe((_res) => {
-      alert('Your Data has been deleted from the database.');
-      location.reload();
-    });
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
 }

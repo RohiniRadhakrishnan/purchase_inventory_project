@@ -7,15 +7,7 @@ let cloudant = Cloudant({ url: url, username: username, password: password });
 
 let insert = function (paramsvalue) {
   console.log(paramsvalue);
-  cloudant
-    .use('rohini-trainee')
-    .insert(paramsvalue)
-    .then((data) => {
-      console.log('Data Inserted into Cloud database' + data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return cloudant.use('rohini-trainee').insert(paramsvalue);
 };
 
 let get = function (admindata, dbname) {

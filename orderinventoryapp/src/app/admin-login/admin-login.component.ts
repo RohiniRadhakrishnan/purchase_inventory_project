@@ -3,6 +3,8 @@
  import { Router } from '@angular/router';
  import { DbservicesService } from '../dbservices.service';
  import { ToastrService } from 'ngx-toastr';
+ import * as lodash from'lodash'
+
  @Component({
    selector: 'app-admin-login',
    templateUrl: './admin-login.component.html',
@@ -40,24 +42,20 @@
    }
   
    adminFormsData(formvalue: any) {
-    for (const i of this.object) {
-     if (
-      i.username == formvalue.username &&
-      i.password == formvalue.password
-     ) {
-       localStorage.setItem("adminid",i._id);
-      this.flag = 1;
-     }
+    let loggedUserData=lodash.find(this.alldata,{"username":formvalue.username,"password":formvalue.password})
+    console.log(loggedUserData)
+    if(loggedUserData && loggedUserData.role==="admin"){
+      localStorage.setItem("adminid",loggedUserData._id);
+      this.toastr.success("Welcome Adminss");
+         this.router.navigate(['/dashboard']);
+    }else if(loggedUserData && loggedUserData.role==="vendor"){
+      localStorage.setItem("userid",loggedUserData._id);
+         this.toastr.success("Welcome vendor");
+          this.router.navigate(['/vinfo']);
+    }else{
+      this.toastr.error("Access invalid");
     }
-    if (this.flag == 1) {
-      this.toastr.success("Welcome Admin");
-       
-     this.router.navigate(['/dashboard']);
-    } else {
-      
-    this.toastr.error("admin access invalid");
-       
-    }
+    
    }
   }
   

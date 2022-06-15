@@ -23,7 +23,7 @@
           href="#"
           class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
           ><em class="fas fa-paperclip me-2"></em
-          ><a routerLink="/list">Purchased list</a></a
+          ><a routerLink="/plist">Purchased details</a></a
         >
         <a
           href="#"
@@ -32,10 +32,10 @@
         ></a>
 
         <a
-          href="#"
+          href="login"
           class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"
           ><em class="fas fa-power-off me-2"></em
-          ><a routerLink="/admin">Logout</a></a
+          ><a role="button" (click)="logout()">Logout</a></a
         >
       </div>
     </div>
@@ -77,11 +77,6 @@
               >
                 <em class="fas fa-user me-2"></em>ROHINI KRISHNAN
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
             </li>
           </ul>
         </div>
@@ -98,8 +93,6 @@
                 <th scope="col">Contact Number</th>
                 <th scope="col">Email</th>
                 <th scope="col">Address</th>
-
-                <th scope="col">Remove User</th>
               </tr>
             </thead>
             <tbody>
@@ -108,12 +101,6 @@
                 <td>{{ obj.phone }}</td>
                 <td>{{ obj.email }}</td>
                 <td>{{ obj.address }}</td>
-
-                <td>
-                  <button class="btn btn-dark" (click)="deluser(obj, obj)">
-                    Delete
-                  </button>
-                </td>
               </tr>
             </tbody>
           </table>

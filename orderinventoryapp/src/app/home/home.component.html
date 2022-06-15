@@ -13,24 +13,25 @@
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" routerLink="homepage" routerLinkActive="active"
-            >Home</a
-          >
+            ><em class="bi bi-house"></em>
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="admin">Admin Login</a>
+          <a class="nav-link" routerLink="login"
+            ><em class="bi bi-file-person-fill"></em
+          ></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact"
+            ><em class="bi bi-info-circle"></em
+          ></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="vendor">vendor-login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Contact Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="pdtls">pdtls</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="plist">purchased List</a>
+          <a class="nav-link" (click)="logout()"
+            ><em class="bi bi-box-arrow-right"></em
+          ></a>
         </li>
       </ul>
     </div>

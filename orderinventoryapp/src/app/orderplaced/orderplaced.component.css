@@ -1,3 +1,9 @@
+*{
+  margin:0;
+}
+.container{
+  display: grid;
+}
 .center {
     display: block;
     margin-left: auto;
@@ -5,4 +11,15 @@
     width: 40%;
     padding: 4%;
   }
-  
+  .welcome{
+    font-size: 33px;
+    color:blue;
+   position: fixed;
+   margin-left: 33%;
+   padding:0;
+   text-align: center;
+   background-color: pink;
+
+
+  }
+ 

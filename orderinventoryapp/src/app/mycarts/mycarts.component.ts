@@ -11,7 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MycartsComponent implements OnInit {
 public product:any=[];
+
   userData: any | null | undefined;
+  
   constructor(private activatedRouter:ActivatedRoute,private api:DatabaseServicesService,private apis:DbservicesService,   private toastr:ToastrService,private router:Router) {
     activatedRouter.queryParams.subscribe(res=>{
       console.log("Product Res",JSON.parse(res.products))
@@ -33,6 +35,7 @@ public product:any=[];
 
  }
 
+
  
 
 
@@ -42,6 +45,10 @@ public product:any=[];
   ngOnInit(): void {
     // TO DO document why this method 'ngOnInit' is empty
   
+  }
+  emptycart(){
+    this.product =[];
+    
   }
   order() {
     this.userData = localStorage.getItem('userid') || '';
@@ -98,11 +105,11 @@ public product:any=[];
        
 
 
-            inc(prod:any){
-              
-              if(prod.quantity != 10){
-                    prod.quantity+= 1;
-                    this.loadCart()
+            inc(pro:any){
+
+              if(parseInt(pro.quantity) < 10){
+                pro.quantity=parseInt(pro.quantity)
+                pro.quantity+= 1;
                   }
                 }
             

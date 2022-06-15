@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import{HttpClient,HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { NgForm } from '@angular/forms';
 
 
@@ -16,6 +16,9 @@ export class DatabaseServicesService {
   id: any;
   cartcount:number = 0;
   userproducts:any=[];
+  public userItemList:any=[];
+  public userlist = new BehaviorSubject<any>([]);
+
   logindata(_FormValue: NgForm) {
     throw new Error('Method not implemented.');
   }
@@ -70,7 +73,7 @@ export class DatabaseServicesService {
      return this.http.post(url, typedData, this.httpOptions)
     
     }
-    add1(db:string,formdata:any){
+add1(db:string,formdata:any){
       const object={
         "pro_img": formdata['pro_img'],
         "pro_name":formdata['pro_name'],
@@ -83,9 +86,7 @@ export class DatabaseServicesService {
             };
             const url=this.url+db;
             return this.http.post(url, object, this.httpOptions)
-
-
-    }
+}
     add2(db:string,formdata:any){
       const object2={
         "shopname": formdata['shopname'],
@@ -161,6 +162,15 @@ FindApiCall(selector:any){
 count(){
   this.cartcount++;
 }  
+removeCartItem(user: any) {
+  this.userItemList.map((a: any, index: any) => {
+    if (user._id === a._id) {
+      this.userItemList.splice(index, 1);
+    }
+  })
+  this.userlist.next(this.userItemList);
+}
+
         
       
       

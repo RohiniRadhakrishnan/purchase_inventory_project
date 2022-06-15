@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DbservicesService } from '../dbservices.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration-form',
@@ -11,11 +12,13 @@ import { Router } from '@angular/router';
 export class RegistrationFormComponent implements OnInit {
   registerform!: FormGroup;
    value: boolean = true;
+   resObj:any;
   
    constructor(
     private formbuilder: FormBuilder,
     private api: DbservicesService,
-    private router:Router   ) {
+    private router:Router ,
+    private toastr:ToastrService  ) {
     
    }
   
@@ -34,16 +37,28 @@ export class RegistrationFormComponent implements OnInit {
       '',
       [Validators.required, Validators.pattern('[A-Za-z0-9@!_]{5,}')],
     ],
+    type:["user"],
 
     });
    }
-   register(Formvalue:NgForm ) {
-    console.log(Formvalue);
-    this.api.signupdata(Formvalue).subscribe((data) => {
+   register(Formvalue:any ) {
+    Formvalue['role'] = 'vendor';
+    console.log("formvalue",Formvalue);
+    this.api.signupdata(Formvalue).subscribe((data:any) => {
      console.log(data);
-    alert('Your Data Posted....');
-    });
-    this.router.navigate(['/vendor']);
+   
+      this.toastr.success(data.message);
+     this.router.navigate(['/login']);
+    },err =>{
+      console.error(err)
+      this.toastr.error(err.error.message);
+
+
+       this.toastr.error(err.error.error.message);
+    
+
+    })
+
     
    }
   }

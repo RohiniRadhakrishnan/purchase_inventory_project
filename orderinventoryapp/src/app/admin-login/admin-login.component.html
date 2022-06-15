@@ -2,7 +2,9 @@
   <div class="container mt-5">
     <div class="card mx-auto">
       <div class="card-header">
-        <h1 class="text-center text-light">Admin Login</h1>
+        <h1 class="text-center text-light">
+          <i class="bi bi-file-person-fill"></i>
+        </h1>
       </div>
       <div class="card-body mx-auto">
         <form
@@ -50,14 +52,13 @@
           </div>
 
           <div class="buttons text-center">
-            <button
-              id="btn"
-              type="submit"
-              class="btn btn-dark"
-              [disabled]="!adminform.valid"
+            <button id="btn" type="submit" class="btn btn-dark">Login</button>
+          </div>
+          <div class="signup text-center">
+            <label for="signup" class="text-light"
+              >Don't Have a Account?
+              <a routerLink="/signup" class="text-danger">Signup</a></label
             >
-              Login
-            </button>
           </div>
         </form>
       </div>

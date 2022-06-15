@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-orderplaced',
   templateUrl: './orderplaced.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderplacedComponent implements OnInit {
 
-  constructor() {
+  constructor(private router:Router) {
     // TO DO document why this method 'ngOnInit' is empty
     
   }

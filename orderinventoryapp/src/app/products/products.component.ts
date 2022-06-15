@@ -64,11 +64,10 @@ export class ProductsComponent implements OnInit {
   }
 
   submit(){
- 
-
       this.api.add1("rohini-trainee",this.addform.value).subscribe(res=>{
       console.log(res);
       this.toastr.success("product Added successfully")
+     this.addform.reset();
      },_rej=>{
        this.toastr.error("product failed to add")
      });

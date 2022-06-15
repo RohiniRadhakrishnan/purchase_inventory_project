@@ -1,3 +1,10 @@
+<div class="back">
+  <label for="back" class="text-light-center"
+    >previous
+    <a routerLink="/dashboard" class="text-primary"
+      ><i class="bi bi-arrow-return-left"></i></a
+  ></label>
+</div>
 <div class="container mt-5">
   <div class="card mx-auto">
     <div class="card-header">
@@ -7,7 +14,7 @@
       <form [formGroup]="addform" class="myform" (ngSubmit)="submit()">
         <div action="#" id="form" method="post">
           <div class="field">
-            <label for="pro_img" class="text-dark">Product:</label>
+            <label for="pro_img" class="text-dark">Product image:</label>
             <input
               class="form-contorl"
               type="text"
@@ -33,7 +40,6 @@
               placeholder="Enter your Pro.name"
               id="pro_name"
               formControlName="pro_name"
-              pattern="[a-zA-z]*"
             /><span
               class="text-danger"
               *ngIf="
@@ -42,15 +48,6 @@
               "
               ><br />enter product name
             </span>
-            <span
-              class="text-danger"
-              *ngIf="
-                addform.controls['username'].dirty &&
-                addform.hasError('pattern', 'uername')
-              "
-            >
-              *Name not match</span
-            >
           </div>
           <div class="field">
             <label for="Pro_price" class="text-dark">Product Price:</label>

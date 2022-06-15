@@ -25,8 +25,9 @@ type:string="orderitems";
 
 inc(pro:any){
 
-  if(pro.quantity != 10){
-        pro.quantity+= 1;
+  if(parseInt(pro.quantity) < 10){
+    pro.quantity=parseInt(pro.quantity)
+    pro.quantity+= 1;
       }
     }
 
@@ -43,17 +44,13 @@ addCart(obj:any){
       console.log( "obj1",obj);
       localStorage.setItem('localCart', JSON.stringify(obj));
 
-      console.log(this.count,'count');
+       console.log(this.count,'count');
 
       
       this.toastr.success('add your product in a cart')
 
 }
-cart(){
 
-this.store=this.userproducts;
-
-}
 
 
   constructor(public api:DatabaseServicesService,private router:Router,private toastr:ToastrService) { 
@@ -78,7 +75,7 @@ this.store=this.userproducts;
               console.log(i.pro_name,i.pro_price,i.quantity,i.total_Qty);
 
             }
-            this.toastr.success('add your product in a cart')
+            this.toastr.success(' product added in a cart')
     },_rej=>{
       console.log("Product not added in cart");
     });

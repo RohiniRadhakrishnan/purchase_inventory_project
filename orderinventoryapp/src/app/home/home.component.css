@@ -1,4 +1,11 @@
 
 .nav-item{
-    color: black;
+    font-size: 30px;
+    color: white;
+    position: relative;
+}
+.role{
+    font-size: 30px;
+    color:white;
+    position:relative;
 }

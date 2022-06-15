@@ -15,8 +15,11 @@ product:any;
     this.activatedRouter.queryParams.subscribe((res:any)=>{
       console.log(JSON.parse(res.userId))
       this.orderData=JSON.parse(res.userId)
+  
+   
     })
-   }
+  }
+
 
   ngOnInit(): void {
     const selector = {

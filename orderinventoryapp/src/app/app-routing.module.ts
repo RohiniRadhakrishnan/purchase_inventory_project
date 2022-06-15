@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
- import { VendorLoginComponent } from './vendor-login/vendor-login.component';
  import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
@@ -14,8 +13,8 @@ import { AdditionalInfoComponent } from './additional-info/additional-info.compo
 import { PurchasedItemsComponent } from './purchased-items/purchased-items.component';
 import { OrderinfoComponent } from './orderinfo/orderinfo.component';
 const routes: Routes = [ 
-{path:'vendor',component:VendorLoginComponent},
-{path:'admin',component:AdminLoginComponent},
+// {path:'vendor',component:VendorLoginComponent},
+{path:'login',component:AdminLoginComponent},
 {path: 'dashboard', component:DashboardComponent},
  {path:'products',component:ProductsComponent},
 {path:'add', component:ProductsComponent},
