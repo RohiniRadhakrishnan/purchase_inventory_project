@@ -15,7 +15,6 @@ app.use(
     origin: 'http://localhost:4200',
   })
 );
-
 app.post('/postquery', function (req, res) {
   const userObject = {
     username: req.body.username,

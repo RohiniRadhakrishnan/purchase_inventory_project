@@ -8,14 +8,14 @@
 
 <div class="col-md-12 text-right">
   <div class="cart_icon" (click)="NavigateToCart()">
-    <em class="bi bi-cart">{{ this.api.cartcount }}</em>
+    <em class="bi bi-cart">{{ count }}</em>
   </div>
 </div>
 
 <div class="container">
   <table id="products" class="table bg-white rounded shadow-sm table-hover">
     <caption></caption>
-    <thead class="heading">
+    <thead>
       <th>Product</th>
       <th>Product Name</th>
       <th>Product Price</th>
@@ -34,7 +34,7 @@
         <td>₹{{ pro.pro_price }}</td>
         <td>
           <button type="button" class="bts" (click)="inc(pro)">
-            <em class="bi bi-plus"></em>
+            <em class="bi bi-plus-square-fill"></em>
           </button>
         </td>
         <td>
@@ -42,7 +42,7 @@
         </td>
         <td>
           <button type="button" class="bts" (click)="dec(pro)">
-            <em class="bi bi-file-minus"></em>
+            <em class="bi bi-dash-square-fill"></em>
           </button>
         </td>
 

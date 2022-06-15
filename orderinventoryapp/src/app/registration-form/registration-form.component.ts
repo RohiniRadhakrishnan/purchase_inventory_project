@@ -51,10 +51,9 @@ export class RegistrationFormComponent implements OnInit {
      this.router.navigate(['/login']);
     },err =>{
       console.error(err)
-      this.toastr.error(err.error.message);
 
 
-       this.toastr.error(err.error.error.message);
+      this.toastr.error(err.error.error.message);
     
 
     })

@@ -11,6 +11,7 @@ export class OrderinfoComponent implements OnInit {
   alluser:any;
 orderData:any
 product:any;
+  total = 0;
   constructor(private activatedRouter:ActivatedRoute,private api:DatabaseServicesService) {
     this.activatedRouter.queryParams.subscribe((res:any)=>{
       console.log(JSON.parse(res.userId))
@@ -39,6 +40,7 @@ product:any;
         let temp:any=[]
         this.alluser.forEach((element:any) => {
           element['product'] = lodash.find(lookup,{'_id':element['product']})
+          this.total+= element['quantity'] * element['price']
           temp.push(element)
       })
       this.alluser = temp

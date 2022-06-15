@@ -17,16 +17,16 @@ public product:any=[];
   constructor(private activatedRouter:ActivatedRoute,private api:DatabaseServicesService,private apis:DbservicesService,   private toastr:ToastrService,private router:Router) {
     activatedRouter.queryParams.subscribe(res=>{
       console.log("Product Res",JSON.parse(res.products))
-      this.product = JSON.parse(res.products) 
       this.loadCart()
       console.log("obj2",this.product)
-       localStorage.setItem('localCart', JSON.stringify(this.product));
     })
    }
    total: number = 0;
  loadCart() {
   if (localStorage.getItem('localCart')) {
-
+    const cart:any = localStorage.getItem('localCart');
+    this.product = JSON.parse(cart);
+     
   this.total = 0;
   this.product.forEach((prod:any)=>{
     this.total+= prod['pro_price'] * prod['quantity']
@@ -34,15 +34,9 @@ public product:any=[];
   }
 
  }
-
-
  
 
-
-
-
-
-  ngOnInit(): void {
+ngOnInit(): void {
     // TO DO document why this method 'ngOnInit' is empty
   
   }
@@ -53,6 +47,8 @@ public product:any=[];
   order() {
     this.userData = localStorage.getItem('userid') || '';
     console.log(this.userData);
+    localStorage.removeItem('localCart');
+    this.api.userproducts = []
     const information = {
       type: 'order',
       user: this.userData,
@@ -121,6 +117,7 @@ public product:any=[];
               
               }
             }
+          
             }
             
             

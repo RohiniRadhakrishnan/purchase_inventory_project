@@ -42,12 +42,11 @@ addCart(obj:any){
     
       this.api.userproducts.push(obj);
       console.log( "obj1",obj);
-      localStorage.setItem('localCart', JSON.stringify(obj));
-
+      localStorage.setItem('localCart', JSON.stringify(this.api.userproducts));
+this.count = this.api.userproducts.length;
        console.log(this.count,'count');
 
-      
-      this.toastr.success('add your product in a cart')
+      this.toastr.success('product added in your cart')
 
 }
 
@@ -60,7 +59,13 @@ addCart(obj:any){
   ngOnInit(): void {
     // TO DO document why this method 'ngOnInit' is empty
   
-  
+    if (localStorage.getItem('localCart')) {
+const cart:any = localStorage.getItem('localCart');
+      this.count = JSON.parse(cart).length;
+      // this.product.forEach((prod:any)=>{
+      //   this.total+= prod['pro_price'] * prod['quantity']
+      // })
+      }
   }
   
   fetchproduct(){
@@ -75,7 +80,7 @@ addCart(obj:any){
               console.log(i.pro_name,i.pro_price,i.quantity,i.total_Qty);
 
             }
-            this.toastr.success(' product added in a cart')
+            // this.toastr.success('Welcome to rainbow fruitfair')
     },_rej=>{
       console.log("Product not added in cart");
     });

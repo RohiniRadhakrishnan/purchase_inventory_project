@@ -31,27 +31,7 @@ font-size: 30px;
   padding: 20px;
   background-color: lightgrey;
   border: 15px solid green;}
-.btn1{
-  text-align: center;
-    background-color: lightgrey;
-    width: 300px;
-    border: 15px solid green;
-    padding: 10px;
-    font-size: 30px;
-    margin: 50px;
-    margin-bottom: 120px;
- 
-}
-.btn2{
-  text-align: center;
-    background-color: lightgrey;
-    width: 300px;
-    border: 15px solid green;
-    padding: 10px;
-    font-size: 30px;
-    margin: 50px;
-    margin-bottom: 120px;
-}
+
 .cart_value{
   
     position: absolute;
@@ -78,7 +58,7 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #1a1a1a;
   text-align: left;
   padding: 8px;
 }
@@ -96,6 +76,13 @@ td{
 th{
   text-align: center;
 }
-.btn{
+.btn1{
   background-color: blue;
+}
+.btn2{
+  background-color: yellow;
+}
+.btn3{
+  background-color: green;
+
 }
