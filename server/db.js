@@ -1,4 +1,5 @@
 let Cloudant = require('@cloudant/cloudant');
+let { type } = require('express/lib/response');
 let url =
   'https://75b0afe3-3fa7-477b-8352-bdcfcd522a16-bluemix.cloudantnosqldb.appdomain.cloud/';
 let username = 'apikey-v2-2djdlrrbf736ap4aa6rlre2x1j1wf65v1ti1e8x2bihn';
