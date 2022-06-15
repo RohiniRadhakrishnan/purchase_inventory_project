@@ -2,6 +2,7 @@ const express = require('express');
 const connection = require('express');
 const bodyparser = require('body-parser');
 const app = connection();
+app.disable('x-powered-by');
 app.use(express.static('public'));
 const port = 8000;
 
@@ -16,6 +17,7 @@ app.use(
   })
 );
 app.post('/postquery', function (req, res) {
+  console.log(req.body);
   const userObject = {
     username: req.body.username,
     phone: req.body.phone,
