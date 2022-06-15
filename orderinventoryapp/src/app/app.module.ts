@@ -8,7 +8,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-// import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
@@ -25,7 +24,6 @@ import { OrderinfoComponent } from './orderinfo/orderinfo.component';
 @NgModule({
   declarations: [
     AppComponent,
-    // VendorLoginComponent,
      RegistrationFormComponent,
      AdminLoginComponent,
     HomeComponent,
