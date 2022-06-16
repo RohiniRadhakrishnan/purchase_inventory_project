@@ -46,7 +46,7 @@ userInf:any;
         element['userData'] = userData.filter((lkp:any)=> element['user'] === lkp['_id'] )[0]
       });
       })
-              this.toastr.success('purchased details')
+              // this.toastr.success('purchased details')
       },_rej=>{
         console.log("Product not added in cart");
       });

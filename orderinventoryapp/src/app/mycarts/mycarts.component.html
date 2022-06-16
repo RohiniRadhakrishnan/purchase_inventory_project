@@ -22,15 +22,15 @@
         <td>{{ prod.pro_name }}</td>
         <td>{{ prod.pro_price }}</td>
         <td>
-          <button type="button" class="qbtn" (click)="inc(prod)">
-            <em class="bi bi-plus"></em>
+          <button type="button" class="button" (click)="inc(prod)">
+            <em class="bi bi-plus-square-fill"></em>
           </button>
         </td>
 
         <td>{{ prod.quantity }}</td>
         <td>
-          <button type="button" class="qbtn" (click)="dec(prod)">
-            <em class="bi bi-file-minus"></em>
+          <button type="button" class="button" (click)="dec(prod)">
+            <em class="bi bi-dash-square-fill"></em>
           </button>
         </td>
         <td>{{ prod.pro_price * prod.quantity }}</td>

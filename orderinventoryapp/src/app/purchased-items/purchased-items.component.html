@@ -15,6 +15,8 @@
   <caption></caption>
   <thead>
     <tr>
+      <th scope="col">orderid</th>
+
       <th scope="col">VendorName</th>
       <th scope="col">Phone</th>
       <th scope="col">Email</th>
@@ -24,6 +26,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of alluser">
+      <td>{{ user._id }}</td>
       <td>{{ user.userData.username }}</td>
       <td>{{ user.userData.phone }}</td>
       <td>{{ user.userData.email }}</td>

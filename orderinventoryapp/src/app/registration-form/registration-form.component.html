@@ -29,10 +29,12 @@
           <div class="field">
             <label for="phone" class="text-dark">Phone Number :</label>
             <input
-              type="number"
+              type="text"
               formControlName="phone"
               id="phone"
               class="form-control"
+              minlength="10"
+              maxlength="10"
               placeholder="Enter Mobile Number"
             />
             <span

@@ -86,3 +86,9 @@ th{
   background-color: green;
 
 }
+button{
+  color:rgb(44, 6, 6);
+  border:none;
+  background: white;
+  font-size: 21px;
+}
