@@ -77,7 +77,7 @@ ngOnInit(): void {
             );
             });
             Promise.all(taskList).then((_result) => {
-            this.toastr.success('Your product was added successfully!');
+            this.toastr.success('Your order placed successfully!');
             this.router.navigate(['/orderplaced']);
             });
             },

@@ -62,6 +62,7 @@ submit(){
   this.api.add2("rohini-trainee",this.addinfo.value).subscribe(res=>{
     console.log(res);
     this.toastr.success("adddtional info completed sucessfully")
+    this.addinfo.reset();
    },_rej=>{
      // TO DO document why this arrow function is empty
    

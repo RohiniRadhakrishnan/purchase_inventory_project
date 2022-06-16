@@ -43,8 +43,8 @@ addCart(obj:any){
       this.api.userproducts.push(obj);
       console.log( "obj1",obj);
       localStorage.setItem('localCart', JSON.stringify(this.api.userproducts));
-this.count = this.api.userproducts.length;
-       console.log(this.count,'count');
+      this.count = this.api.userproducts.length;
+      console.log(this.count,'count');
 
       this.toastr.success('product added in your cart')
 
