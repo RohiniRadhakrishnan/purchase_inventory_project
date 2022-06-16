@@ -26,7 +26,7 @@ export class HttpCallInterceptor implements HttpInterceptor {
   this.toastr.error(err.error.message);
  }
  
- 
+
  })
  
  )
